@@ -30,7 +30,7 @@ Metadata
 Implementation
 --------------
 Starfish Implements the :py:class:`ExpressionMatrix` as an :code:`xarray.DataArray` object to take
-advantage of `xarray's`_ high performance, flexible metadata storage capabilities, and Serialization
+advantage of `xarray's`_ high performance, flexible metadata storage capabilities, and serialization
 options
 
 .. _`xarray's`: http://xarray.pydata.org/en/stable/

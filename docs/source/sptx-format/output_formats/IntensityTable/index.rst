@@ -2,14 +2,14 @@ IntensityTable
 ==============
 
 The :py:class:`IntensityTable` summarizes information about RNA features that are detected in
-Image-based transcriptomics experiments. The most common features are spots, pixels, or connected
+image-based transcriptomics experiments. The most common features are spots, pixels, or connected
 pixels that result from the fluorescence of a probe that has been experimentally attached to an RNA
 molecule.
 
-To gather information on the RNA present in a tissue slice, Image-based transcriptomics experiments
+To gather information on the RNA present in a tissue slice, image-based transcriptomics experiments
 require the imaging of the same RNA molecules over multiple rounds and across multiple fluorescence
 channels. In multiplex assays, the identity of these spots is only determined after measuring the
-spot's intensity across all rounds and channels. In sequential experiments, each round and channel
+spot's intensity across all rounds and channels. In sequential assays, each round and channel
 identifies all detected RNA molecules for a specific target.
 
 The :py:class:`IntensityTable` stores a summary of the intensity of each feature across each round
