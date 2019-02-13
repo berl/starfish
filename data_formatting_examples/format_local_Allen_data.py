@@ -25,7 +25,7 @@ TC_STRING = "TileConfig_405.txt"
 CH_STRINGS = ["Bandpass405", "Bandpass488", "Bandpass561", "Bandpass640"]
 
 class AllenTile(FetchedTile):
-    def __init__(self, file_path, tileconfig):
+    def __init__(self, file_path, tileconfig=None):
         self.file_path = file_path
         self.tileconfig  = tileconfig
     @property
