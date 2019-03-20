@@ -201,6 +201,7 @@ class LocalMaxPeakFinder(SpotFinderAlgorithmBase):
         Number :  #TODO ambrosejcarr this should probably be a float
             The intensity threshold
         """
+        img = np.asarray(img)
         thresholds, spot_counts = self._compute_num_spots_per_threshold(img)
         threshold = self._select_optimal_threshold(thresholds, spot_counts)
         return threshold
@@ -221,6 +222,8 @@ class LocalMaxPeakFinder(SpotFinderAlgorithmBase):
 
         if self.threshold is None:
             self.threshold = self._compute_threshold(data_image)
+
+        data_image = np.asarray(data_image)
 
         # identify each spot's size by binarizing and calculating regionprops
         masked_image = data_image[:, :] > self.threshold

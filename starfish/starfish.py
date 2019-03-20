@@ -1,14 +1,18 @@
 #!/usr/bin/env python
 import cProfile
+import subprocess
+import sys
 from pstats import Stats
 
-from sptx_format.cli import validate as validate_cli
+import pkg_resources
+
 from starfish.experiment.builder.cli import build as build_cli
 from starfish.image import (
     Filter,
     Registration,
     Segmentation,
 )
+from starfish.spacetx_format.cli import validate as validate_cli
 from starfish.spots import (
     Decoder,
     PixelSpotDecoder,
@@ -66,6 +70,25 @@ def version():
     from starfish import __version__
     print(__version__)
 version.no_art = True  # type: ignore
+
+
+@starfish.group()
+def util():
+    """
+    house-keeping commands for the starfish library
+    """
+    pass
+
+@util.command()
+def install_strict_dependencies():
+    """
+    warning! updates different packages in your local installation
+    """
+    strict_requirements_file = pkg_resources.resource_filename(
+        "starfish", "REQUIREMENTS-STRICT.txt")
+    subprocess.check_call([
+        sys.executable, "-m", "pip", "install", "-r", strict_requirements_file
+    ])
 
 
 # Pipelines

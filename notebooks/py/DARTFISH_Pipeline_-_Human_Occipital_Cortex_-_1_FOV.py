@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-import starfish.display
+from starfish import display
 from starfish import data, FieldOfView
 from starfish.types import Features, Axes
 
@@ -41,7 +41,7 @@ sns.set_style('ticks')
 use_test_data = os.getenv("USE_TEST_DATA") is not None
 exp = data.DARTFISH(use_test_data=use_test_data)
 
-stack = exp.fov()[FieldOfView.PRIMARY_IMAGES]
+stack = exp.fov().get_image(FieldOfView.PRIMARY_IMAGES)
 # EPY: END code
 
 # EPY: START code
@@ -49,7 +49,8 @@ print(stack.shape)
 # EPY: END code
 
 # EPY: START code
-starfish.display.stack(stack)
+# EPY: ESCAPE %gui qt5
+display(stack)
 # EPY: END code
 
 # EPY: START markdown
